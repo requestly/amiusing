@@ -1,4 +1,6 @@
 import Head from "next/head";
+import No from "../components/No";
+import Yes from "../components/Yes";
 
 export default function Home({ headers }) {
   const amIUsingRequestly = headers.amiusingrequestly === "true" || false;
@@ -16,9 +18,7 @@ export default function Home({ headers }) {
         <link href="/favicon.png" rel="shortcut icon" />
       </Head>
 
-      <h1 style={{ textAlign: "center" }}>
-        {amIUsingRequestly ? "YES" : "NO"}
-      </h1>
+      <div className="container">{amIUsingRequestly ? <Yes /> : <No />}</div>
     </div>
   );
 }

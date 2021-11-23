@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.container {
+body {
   font-family: "Nunito Sans", sans-serif;
   min-height: 100vh;
 }
@@ -22,7 +22,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-  min-height: 100vh;
 }
 
 .success {
@@ -35,7 +34,7 @@
   font-size: 3.2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: end;
 }
 
 .success a {
@@ -44,37 +43,6 @@
 }
 
 .success svg {
-  width: 3rem;
-  margin-right: 0.8rem;
-}
-
-.failure {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.failure {
-  background: #da2525;
-  color: #fff;
-  text-align: center;
-}
-
-.failure h1 {
-  font-size: 3.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.failure a {
-  color: #fff;
-  font-weight: 800;
-}
-
-.failure svg {
   width: 3rem;
   margin-right: 0.8rem;
 }
