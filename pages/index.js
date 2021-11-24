@@ -2,11 +2,7 @@ import Head from "next/head";
 import No from "../components/No";
 import Yes from "../components/Yes";
 
-export default function Home({ headers, hostname, originalUrl }) {
-  if (headers["x-forwarded-proto"] !== "http") {
-    window.location = "http://" + hostname + originalUrl;
-  }
-
+export default function Home({ headers }) {
   const amIUsingRequestly = headers.amiusingrequestly === "true" || false;
 
   return (
@@ -30,17 +26,15 @@ export default function Home({ headers, hostname, originalUrl }) {
 export const getServerSideProps = ({ req, res }) => {
   const headers = req.headers;
 
-  // if (headers["x-forwarded-proto"] !== "http") {
-  //   res.writeHead(302, {
-  //     Location: "http://" + req.hostname + req.originalUrl,
-  //   });
-  // }
+  if (headers["x-forwarded-proto"] !== "http") {
+    res.writeHead(302, {
+      Location: `http://${req.hostname}${req.originalUrl}`,
+    });
+  }
 
   return {
     props: {
       headers,
-      hostname: req.hostname || "",
-      originalUrl: req.originalUrl || "",
     },
   };
 };
