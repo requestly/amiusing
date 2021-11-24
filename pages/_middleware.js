@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function middleware(req, ev) {
-  return req.headers["x-forwarded-proto"] !== "https"
+  return req.headers["x-forwarded-proto"] !== "http"
     ? NextResponse.redirect(`http://${req.nextUrl.hostname}`)
     : NextResponse.next();
 }
