@@ -3,6 +3,8 @@ import No from "../components/No";
 import Yes from "../components/Yes";
 
 export default function Home({ headers }) {
+  console.log(headers);
+
   const amIUsingRequestly = headers.amiusingrequestly === "true" || false;
 
   return (
