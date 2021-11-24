@@ -26,12 +26,6 @@ export default function Home({ headers }) {
 export const getServerSideProps = ({ req, res }) => {
   const headers = req.headers;
 
-  if (headers["x-forwarded-proto"] !== "http") {
-    res.writeHead(302, {
-      Location: `http://${req.hostname}${req.originalUrl}`,
-    });
-  }
-
   return {
     props: {
       headers,
