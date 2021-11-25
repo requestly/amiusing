@@ -23,12 +23,10 @@ export default function Home({ headers }) {
   );
 }
 
-export const getServerSideProps = ({ req, res }) => {
-  const headers = req.headers;
+export const getServerSideProps = (ctx) => {
+  const headers = ctx.req.headers;
 
   return {
-    props: {
-      headers,
-    },
+    props: { headers },
   };
 };
