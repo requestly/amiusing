@@ -40,14 +40,14 @@ export default function Yes() {
             Getting started
           </a>
           <a
-            href="https://docs.requestly.io/getting-started/rule-operators"
+            href="https://docs.requestly.io/desktop-app/mac/features/rule-operators"
             target="_blank"
             rel="noreferrer noopener"
           >
             Understanding Rule Operators
           </a>
           <a
-            href="https://docs.requestly.io/using-rules/modify-headers"
+            href="https://docs.requestly.io/desktop-app/mac/http-modifications/headers-rule"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -75,14 +75,14 @@ export default function Yes() {
             Coinditionally replace part of an URL String
           </a>
           <a
-            href="https://docs.requestly.io/using-rules/user-agent-modification-rule"
+            href="https://docs.requestly.io/desktop-app/mac/http-modifications/user-agent-rule"
             target="_blank"
             rel="noreferrer noopener"
           >
             Modify User Agent
           </a>
           <a
-            href="https://docs.requestly.io/managing-rules/sharing"
+            href="https://docs.requestly.io/desktop-app/mac/features/sharing-rules"
             target="_blank"
             rel="noreferrer noopener"
           >
