@@ -13,7 +13,7 @@ export default function No() {
           In case you think this is a problem at our end, feel free to log an
           issue on our{" "}
           <a
-            href="https://github.com/requestly/customer-support/issues"
+            href="https://github.com/requestly/requestly/issues"
             target="_blank"
             rel="noreferrer noopener"
           >

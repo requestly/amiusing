@@ -33,56 +33,56 @@ export default function Yes() {
 
         <div className="options">
           <a
-            href="https://docs.requestly.io/desktop-app/how-to..."
+            href="https://docs.requestly.com/general/getting-started--introduction"
             target="_blank"
             rel="noreferrer noopener"
           >
             Getting started
           </a>
           <a
-            href="https://docs.requestly.io/desktop-app/mac/features/rule-operators"
+            href="https://docs.requestly.com/general/advanced-usage/rule-operators"
             target="_blank"
             rel="noreferrer noopener"
           >
             Understanding Rule Operators
           </a>
           <a
-            href="https://docs.requestly.io/desktop-app/mac/http-modifications/headers-rule"
+            href="https://docs.requestly.com/general/rule-types/modify-headers"
             target="_blank"
             rel="noreferrer noopener"
           >
             Modify HTTP(s) Headers
           </a>
           <a
-            href="https://docs.requestly.io/using-rules/modify-ajax-response-rule"
+            href="https://docs.requestly.com/general/http-rules--rule-types/modify-response-body"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Modify AJAX Response Rule
+            Modify Response Rule
           </a>
           <a
-            href="https://docs.requestly.io/using-rules/custom-script-rule"
+            href="https://docs.requestly.com/general/http-rules--rule-types/modify-dominject-scripts"
             target="_blank"
             rel="noreferrer noopener"
           >
             Inject Javascript or CSS to any website
           </a>
           <a
-            href="https://docs.requestly.io/using-rules/replace-rule"
+            href="https://docs.requestly.com/general/rule-types/replace-strings"
             target="_blank"
             rel="noreferrer noopener"
           >
             Coinditionally replace part of an URL String
           </a>
           <a
-            href="https://docs.requestly.io/desktop-app/mac/http-modifications/user-agent-rule"
+            href="https://docs.requestly.com/general/rule-types/modify-user-agents"
             target="_blank"
             rel="noreferrer noopener"
           >
             Modify User Agent
           </a>
           <a
-            href="https://docs.requestly.io/desktop-app/mac/features/sharing-rules"
+            href="https://docs.requestly.com/general/others/sharing-rules"
             target="_blank"
             rel="noreferrer noopener"
           >
