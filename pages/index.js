@@ -11,6 +11,7 @@ export default function Home({ headers }) {
         <title>
           Am I Using Requestly | Requestly - Intercept & Modify HTTP(s) Requests
         </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
           content="Requestly allows you to Intercept & Modify network requests. Main features include Modifying headers, Setting  up redirects, Switch hosts, inserting custom scripts and much more"
