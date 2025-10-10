@@ -13,7 +13,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .success,
@@ -21,21 +27,42 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
-  min-height: 100vh;
+  padding: 1rem;
+  min-height: 50vh;
+}
+
+@media (min-width: 768px) {
+  .success,
+  .next {
+    padding: 2rem;
+    min-height: 100vh;
+  }
 }
 
 .success {
   background: #0648b3;
   color: #fff;
-  text-align: right;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .success {
+    text-align: right;
+  }
 }
 
 .success h1 {
-  font-size: 3.2rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .success h1 {
+    font-size: 3.2rem;
+    justify-content: flex-end;
+  }
 }
 
 .success a {
@@ -44,8 +71,14 @@
 }
 
 .success svg {
-  width: 3rem;
+  width: 2rem;
   margin-right: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .success svg {
+    width: 3rem;
+  }
 }
 
 .failure {
@@ -53,7 +86,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .failure {
+    padding: 2rem;
+  }
 }
 
 .failure {
@@ -63,10 +102,16 @@
 }
 
 .failure h1 {
-  font-size: 3.2rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .failure h1 {
+    font-size: 3.2rem;
+  }
 }
 
 .failure a {
@@ -75,8 +120,14 @@
 }
 
 .failure svg {
-  width: 3rem;
+  width: 2rem;
   margin-right: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .failure svg {
+    width: 3rem;
+  }
 }
 
 .info {
@@ -88,8 +139,14 @@ p + p {
 }
 
 .next h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0648b3;
+}
+
+@media (min-width: 768px) {
+  .next h2 {
+    font-size: 2rem;
+  }
 }
 
 .next .options {
@@ -115,4 +172,42 @@ p + p {
 
 a + a {
   margin-top: 0.6rem;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 767px) {
+  .next .options {
+    align-items: stretch;
+  }
+  
+  .next a {
+    padding: 0.5rem 0;
+    word-wrap: break-word;
+  }
+  
+  .info {
+    margin-top: 1rem;
+  }
+  
+  .info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Ensure text doesn't overflow on very small screens */
+@media (max-width: 480px) {
+  .success h1,
+  .failure h1 {
+    font-size: 1.5rem;
+  }
+  
+  .next h2 {
+    font-size: 1.2rem;
+  }
+  
+  .success svg,
+  .failure svg {
+    width: 1.5rem;
+  }
 }

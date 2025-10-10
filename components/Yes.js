@@ -72,7 +72,7 @@ export default function Yes() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Coinditionally replace part of an URL String
+            Conditionally replace part of an URL String
           </a>
           <a
             href="https://docs.requestly.com/general/rule-types/modify-user-agents"
