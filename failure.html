@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Am I Using Requestly | Requestly - Intercept &amp; Modify HTTP(s) Requests</title>
+  <meta name="description" content="Requestly allows you to Intercept &amp; Modify network requests. Main features include Modifying headers, Setting up redirects, Switch hosts, inserting custom scripts and much more">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <script type="application/json" id="amiusing">{"amiusing": false}</script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .container { font-family: "Nunito Sans", sans-serif; min-height: 100vh; }
+    .failure {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 1rem; background: #da2525; color: #fff; text-align: center;
+    }
+    @media (min-width: 768px) { .failure { padding: 2rem; } }
+    .failure h1 {
+      font-size: 2rem; display: flex; align-items: center; justify-content: center;
+    }
+    @media (min-width: 768px) { .failure h1 { font-size: 3.2rem; } }
+    .failure a { color: #fff; font-weight: 800; }
+    .failure svg { width: 2rem; margin-right: 0.8rem; }
+    @media (min-width: 768px) { .failure svg { width: 3rem; } }
+    .info { margin-top: 2rem; }
+    p + p { margin-top: 0.8rem; }
+    @media (max-width: 767px) {
+      .info { margin-top: 1rem; }
+      .info p { font-size: 0.95rem; line-height: 1.5; }
+    }
+    @media (max-width: 480px) {
+      .failure h1 { font-size: 1.5rem; }
+      .failure svg { width: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="failure">
+      <h1>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Failure
+      </h1>
+      <div class="info">
+        <p>It doesn't seem like you're using Requestly</p>
+        <p>
+          In case you think this is a problem at our end, feel free to log an issue on our
+          <a href="https://github.com/requestly/requestly/issues" target="_blank" rel="noreferrer noopener">Github</a>
+          or initiate a chat from the bottom right corner of this page.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

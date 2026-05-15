@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# amiusing.requestly.io
 
-## Getting Started
+A Cloudflare Worker that tells the user whether their traffic is currently flowing through the Requestly desktop proxy.
 
-First, run the development server:
+The Requestly desktop proxy injects an `amiusingrequestly: true` request header on every outbound request to `amiusing.requestly.io`. This Worker reads that header on receipt and returns one of two inline pages:
+
+- `success.html` — shown when the header is present (i.e. the user IS being proxied).
+- `failure.html` — shown otherwise.
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+npx wrangler dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then in another terminal:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+# No header → No page
+curl -i http://127.0.0.1:8787/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# With header → Yes page
+curl -i -H 'amiusingrequestly: true' http://127.0.0.1:8787/
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Deploy
 
-## Learn More
+One-time setup:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx wrangler login
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Staging (before cutover):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run deploy:staging
+```
 
-## Deploy on Vercel
+Production:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run deploy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Routes are configured per-deploy via the `--route` flag in the npm scripts (see `package.json`). Adjust `wrangler.toml` if you prefer to pin routes there.
+
+## Cloudflare configuration
+
+For HTTP to work end-to-end (the proxy-test docs reference `http://amiusing.requestly.io` because the desktop proxy MITM only works over HTTPS once the Requestly CA is trusted), the following must be set on the `amiusing.requestly.io` hostname in Cloudflare:
+
+- **Configuration Rule** scoped to `amiusing.requestly.io`: `Always Use HTTPS = Off`.
+- HSTS not enabled for this hostname. The Worker also emits `Strict-Transport-Security: max-age=0` as belt-and-suspenders.
+
+The site-wide HTTPS setting on `requestly.io` stays untouched.
+
+## Response headers
+
+Every response from the Worker sets:
+
+- `content-type: text/html; charset=utf-8`
+- `cache-control: no-store` — a cached "No" must not survive a later interception.
+- `strict-transport-security: max-age=0` — keep `http://` from being auto-upgraded.
