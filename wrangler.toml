@@ -1,0 +1,29 @@
+name = "amiusing"
+main = "worker.js"
+compatibility_date = "2026-05-15"
+
+# HTML files (success.html, failure.html) are bundled into the Worker as strings via
+# the Text rule. At deploy time Wrangler inlines them so the Worker is a single
+# self-contained artifact at runtime.
+rules = [
+  { type = "Text", globs = ["**/*.html"], fallthrough = true },
+]
+
+# Default routes — staging only. Production gets deployed via the production
+# env block below.
+#
+# Attached as Custom Domains (not URL-pattern Routes) so that the Worker
+# receives both HTTP and HTTPS traffic directly and the zone-wide
+# `Always Use HTTPS` setting does not 301 HTTP requests before they reach the
+# Worker. This is required for the `http://amiusing.requestly.io` proxy-test
+# flow documented in the desktop app to keep working without per-hostname
+# carve-outs at the zone level.
+routes = [
+  { pattern = "amiusing-staging.requestly.io", custom_domain = true },
+]
+
+# Production environment. Deploy with `wrangler deploy --env production`.
+[env.production]
+routes = [
+  { pattern = "amiusing.requestly.io", custom_domain = true },
+]
